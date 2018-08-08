@@ -1,5 +1,6 @@
 body {
   background: linear-gradient(-60deg, #8E2DE2, #4A00E0);
+  background-attachment: fixed;
   height: 100vh;
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
@@ -26,7 +27,8 @@ body {
   margin-top: 15px; }
 
 .list__container {
-  margin: 80px 0; }
+  margin: 40px 0;
+  position: relative; }
 
 .list__item {
   background: #ffffff;
@@ -81,6 +83,22 @@ body {
 .list__item--link {
   float: right;
   width: 50px;
-  opacity: .4; }
+  opacity: .4;
+  transition: all 0.5s ease; }
+  .list__item--link:hover {
+    opacity: 1; }
+
+.list__item__delete {
+  position: absolute;
+  right: -50px;
+  top: 0px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s ease; }
+  .list__item__delete:hover {
+    opacity: 1;
+    transform: rotate(360deg); }
 
 /*# sourceMappingURL=styles.css.map */
