@@ -17,14 +17,24 @@
         <div class="form__container" id="form">
             <h1 class='header__title'>Wishlist</h1>
             <h3 class='header__subtitle'>Add an item to your wishlist</h3>
-            <div id="form" class="form__grid">
-                <label> Name <input v-model="newName" type="text"></label>
-                <label> Price <input v-model="newPrice" type="text"></label>
-                <label> Link <input v-model="newLink" type="text" placeholder="(optional)"></label>
-                <label> Category <input v-model="newCategory" type="select"></label>
-                <label> Timeframe <input v-model="newYears" type="text" placeholder="years"><input v-model="newMonths" type="text" placeholder="months"><input v-model="newWeeks" type="text" placeholder="weeks">
-                <label> Amount saved <input v-model="newAmountSaved" type="text" placeholder="(optional)"></label>
-                <button @click="addNew(); scrollToBottom()">+ Add item</button>
+            <div id="form" class="form__layout">
+                <div class="grid__row--top">
+                    <label> Name* <input v-model="newName" type="text"></label>
+                    <label> Price* <input v-model="newPrice" type="text"></label>
+                    <label> Category* <input v-model="newCategory" type="select"></label>
+
+                </div>
+                <div class="grid__row--middle">
+                        <label> Timeframe <input v-model="newYears" type="text" placeholder="years"><input v-model="newMonths" type="text" placeholder="months"><input v-model="newWeeks" type="text" placeholder="weeks">
+                </div>
+                <div class="grid__row--bottom">
+                    <label> Link <input v-model="newLink" type="text" placeholder="http://"></label>
+                    <label> Amount saved <input v-model="newAmountSaved" type="text" placeholder="(optional)"></label>
+                    
+                </div>
+                
+                
+                <button @click="addNew(); scrollToBottom()" class="form__button">+ Add item</button>
             </div>
             <div v-show="error" class="error-message"><i class="fas fa-exclamation-circle"></i> Please fill out the required fields!</div>
         </div>

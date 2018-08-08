@@ -14,12 +14,12 @@ body {
 }
 
 .base__container {
-    width: 70%;
+    width: 1040px;
     margin: auto;
   }
 
 .form__container {
-    margin-top: 150px;
+    margin-top: 100px;
 }
   
 .header__title {
@@ -33,6 +33,7 @@ body {
     font-size: $font-subtitle-size;
     opacity: .8;
     margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 // Form 
@@ -45,9 +46,42 @@ body {
     font-size: em(21px);
 }
 
-.form__grid {
+.form__layout {
     display: grid;
-    
+    grid-template-columns: 1fr;
+    input {
+        background-color: rgba( 0,0,0, 0.5);
+        color: $white;
+        border: none;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 10px 20px;
+        &::placeholder {
+            color: $white;
+            opacity: .8;
+        } 
+    }
+    label {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.form__button {
+    max-width: 200px;
+    cursor: pointer;
+    color: $white;
+    font-weight: $font-weight-bold;
+    background: darken($blue, 5%);
+    box-shadow: 1px 1px 10px darken($blue, 25%);
+    border: none;
+    border-radius: 50px;
+    margin: 40px auto;
+    padding: 10px 40px;
+    transition: all 0.5s ease;
+    &:hover{
+        background-color: darken($blue, 10%);
+    }
 }
 
 // Display
@@ -59,6 +93,7 @@ body {
 
 .list__item {
     background: $white;
+    box-shadow: 1px 1px 10px darken($blue, 25%);
     padding: 50px 60px 50px 60px;
     margin: 10px 0;
     border-radius: 5px;
