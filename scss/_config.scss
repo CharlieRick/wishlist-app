@@ -1,0 +1,30 @@
+@import 'utilities';
+
+// =======================================================================================
+//  Fonts
+// =======================================================================================
+
+// Font Families
+
+$font-url--google : 'https://fonts.googleapis.com/css?family=Work+Sans:300,600';
+
+$font-family: 'Work Sans', sans-serif;
+
+// Font Weights
+
+$font-weight-light   : 300;
+$font-weight-bold    : 600;
+
+// Font Sizes
+
+$base__font-size: 16px;
+$font-title-size: em(100px);
+
+// =======================================================================================
+//  Colours
+// =======================================================================================
+
+$color-primary-gradient : linear-gradient(-60deg, #8E2DE2, #4A00E0);
+
+$white: #ffffff;
+

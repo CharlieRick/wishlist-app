@@ -5,15 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Wishlist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Wishlist</h1>
-        <h3>Add an item to your wishlist</h3>
-        <div id="form">
-            <label> name
-                <input type="text"></label>
+    <div class="container" id="app">
+        <div class="form">
+            <h1>Wishlist</h1>
+            <h3>Add an item to your wishlist</h3>
+            <div id="form">
+                <label> Name <input type="text"></label>
+                <label> Price <input type="text"></label>
+                <label> Link <input type="text" placeholder="(optional)"></label>
+                <label> Category <input type="select"></label>
+                <label> Timeframe <input type="text" placeholder="years"><input type="text" placeholder="months"><input type="text" placeholder="weeks"><input type="text" placeholder="days"></label>
+                <label> Amount saved <input type="text" placeholder="(optional)"></label>
+                <button>+ Add item</button>
+            </div>
         </div>
 
     </div>
