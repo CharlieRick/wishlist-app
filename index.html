@@ -6,12 +6,14 @@
     <title>Wishlist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
 </head>
 <body>
-    <div class="container" id="app">
-        <div class="form">
+    <div class="base__container" id="app">
+        <div class="form__container">
             <h1 class='header__title'>Wishlist</h1>
             <h3 class='header__subtitle'>Add an item to your wishlist</h3>
             <div id="form">
@@ -25,10 +27,35 @@
             </div>
         </div>
 
+        <div class="list__container">
+            <div class="list__item">
+                <div class="list__item__col--left">
+                    <img :src="catImageLink()" class="list__item--category">
+                    <h1> {{ wishlists[0].name }}</h1>
+                    <p id="list__item--current">Current Progress £{{ wishlists[0].amountSaved }}/£{{ wishlists[0].price }} – {{ savedPercentage() }}%</p>
+                    <b-progress height="15px" :value="savedPercentage()" :max="100" class="mb-3"></b-progress>
+                    <p>£500 per month / £125 per week</p>
+                </div>
+                <div class="list__item__col--right">
+                    <div><h1> £{{ (wishlists[0].price - wishlists[0].amountSaved) }}</h1>
+                         <p>in 4 years</p>
+                    </div>
+                    <div class="list__item__links">
+                        <a :href="wishlists[0].link" target="_blank"><img class="list__item--link" src="resources/link-01.svg"></a>
+                        <p>edit</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
     </div>
         
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="http://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script src="app.js"></script>
 
 </body>
