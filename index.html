@@ -8,6 +8,7 @@
 
     <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
 </head>
@@ -16,36 +17,40 @@
         <div class="form__container" id="form">
             <h1 class='header__title'>Wishlist</h1>
             <h3 class='header__subtitle'>Add an item to your wishlist</h3>
-            <div id="form">
+            <div id="form" class="form__grid">
                 <label> Name <input v-model="newName" type="text"></label>
                 <label> Price <input v-model="newPrice" type="text"></label>
                 <label> Link <input v-model="newLink" type="text" placeholder="(optional)"></label>
                 <label> Category <input v-model="newCategory" type="select"></label>
-                <label> Timeframe <input v-model="newYears" type="text" placeholder="years"><input v-model="newMonths" type="text" placeholder="months"><input v-model="newWeeks" type="text" placeholder="weeks"><input v-model="newDays" type="text" placeholder="days"></label>
+                <label> Timeframe <input v-model="newYears" type="text" placeholder="years"><input v-model="newMonths" type="text" placeholder="months"><input v-model="newWeeks" type="text" placeholder="weeks">
                 <label> Amount saved <input v-model="newAmountSaved" type="text" placeholder="(optional)"></label>
                 <button @click="addNew(); scrollToBottom()">+ Add item</button>
             </div>
+            <div v-show="error" class="error-message"><i class="fas fa-exclamation-circle"></i> Please fill out the required fields!</div>
         </div>
         <div id="listContainer">
-            <div v-for="wish in wishlists" class="list__container">
+            <div v-for="(wish, index) in wishlists" class="list__container">
                 <div class="list__item">
                     <div class="list__item__col--left">
                         <img :src="catImageLink(wish)" class="list__item--category">
                         <h1> {{ wish.name }}</h1>
                         <p id="list__item--current">Current Progress £{{ wish.amountSaved }}/£{{ wish.price }} – {{ savedPercentage(wish) }}%</p>
                         <b-progress height="15px" :value="savedPercentage(wish)" :max="100" class="mb-3"></b-progress>
-                        <p>£500 per month / £125 per week</p>
+                        <p v-show="timeframeWeekly(wish) != Infinity">£{{ (timeframeWeekly(wish)*4.34524).toFixed(2) }} per month / £{{ (timeframeWeekly(wish)).toFixed(2) }} per week</p>
                     </div>
                     <div class="list__item__col--right">
                         <div><h1> £{{ (wish.price - wish.amountSaved) }}</h1>
-                            <p>in 4 years</p>
+                            <p v-show="wish.years > 0 || wish.months > 0 || wish.weeks > 0">in </p>
+                            <p v-show="wish.years > 0">{{ wish.years }} years</p>
+                            <p v-show="wish.months > 0">{{ wish.months }} months</p>
+                            <p v-show="wish.weeks > 0">{{ wish.weeks }} weeks</p>
                         </div>
                         <div class="list__item__links">
                             <a :href="wish.link" target="_blank"><img class="list__item--link" src="resources/link-01.svg"></a>
                             <p>edit</p>
                         </div>
                     </div>
-                    <div class="list__item__delete">
+                    <div @click="wishlists.splice(index, 1)" class="list__item__delete">
                         <img src="resources/delete.svg">
                     </div>
                     

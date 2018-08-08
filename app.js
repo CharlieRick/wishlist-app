@@ -1,29 +1,6 @@
 const wishlists = [
-    {
-      category: 'home',
-      name: 'Deposit for house',
-      price: 24000,
-      link: 'http://www.zoopla.co.uk/',
-      years: 0,
-      months: 0,
-      weeks: 0,
-      days: 0,
-      amountSaved: 7000
-    },
-    {
-      category: 'car',
-      name: 'BMW M3',
-      price: 45000,
-      link: 'http://www.bmw.co.uk/',
-      years: 0,
-      months: 0,
-      weeks: 0,
-      days: 0,
-      amountSaved: 9000
-    }
+    
   ];
-
-  console.log(wishlists);
 
 var display = new Vue({
     el: '#listContainer',
@@ -39,6 +16,12 @@ var display = new Vue({
       catImageLink : function catImageLink(wish) {
         var catImageLink = 'resources/categories/' + wish.category + '.svg';
         return catImageLink;
+      },
+
+      timeframeWeekly: function timeframeWeekly(wish) {
+        var timeframe = (wish.years * 52.1429) + (wish.months * 4.34524) + (wish.weeks);
+        var timeframeWeekly = (wish.price - wish.amountSaved) / timeframe;
+        return timeframeWeekly;
       }
     }
   });
@@ -48,41 +31,57 @@ var display = new Vue({
     data: {
       wishlists: wishlists,
       newName: '',
-      newPrice: 0,
-      newAmountSaved: null,
+      newPrice: null,
+      newAmountSaved: 0,
       newCategory: '',
-      newYears: 0,
-      newMonths: 0,
-      newWeeks: 0,
-      newDays: 0,
-      newLink: null
+      newYears: null,
+      newMonths: null,
+      newWeeks: null,
+      newLink: null,
+      error: false
     },
     methods: {
 
       addNew: function(){
-        this.wishlists.push({
-          category: this.newCategory,
-          name: this.newName,
-          price: this.newPrice,
-          link: this.newLink,
-          years: this.newYears,
-          months: this.newMonths,
-          weeks: this.newWeeks,
-          days: this.newDays,
-          amountSaved: this.newAmountSaved
-        })
+        if(!this.newName || !this.newPrice || !this.newCategory) {
+          this.error = true;
+        } else {
+          this.wishlists.push({
+            category: this.newCategory,
+            name: this.newName,
+            price: this.newPrice,
+            link: this.newLink,
+            years: this.newYears,
+            months: this.newMonths,
+            weeks: this.newWeeks,
+            amountSaved: this.newAmountSaved
+          });
+        
+        }
+        
       },
       scrollToBottom: function(){
-        $('html, body').animate({ 
-          scrollTop: $(document).height()}, 
-          400
-          
-        );
+        if(!this.newName || !this.newPrice || !this.newCategory) {
+          this.error = true;
+        } else {
+          $('html, body').animate({ 
+            scrollTop: $(document).height()}, 
+            400
+          );
+          this.newCategory = '';
+          this.newName = '';
+          this.newPrice = '';
+          this.newLink = null;
+          this.newYears = null;
+          this.newMonths = null;
+          this.newWeeks = null;
+          this.newAmountSaved = 0;
+
+          this.error = false;
+        }
       }
     }
   });
-
-  console.log(wishlists[0]);
 
 
 

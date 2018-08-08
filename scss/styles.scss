@@ -4,7 +4,7 @@
 body {
     background: $color-primary-gradient;
     background-attachment: fixed;
-    height: 100vh;
+    height: 100%;
     font-family: $font-family;
     font-weight: $font-weight-light;
     font-size: $base__font-size;
@@ -36,6 +36,19 @@ body {
 }
 
 // Form 
+
+.error-message {
+
+    max-width:500px;
+    margin: 20px auto;
+    padding: 10px 10px;
+    font-size: em(21px);
+}
+
+.form__grid {
+    display: grid;
+    
+}
 
 // Display
 
@@ -93,7 +106,7 @@ body {
         margin-bottom: 5px;
     }
     p {
-        margin-top: 5px;
+        display: inline;
     }
     color: grey;
 }
