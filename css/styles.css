@@ -3,6 +3,7 @@ body {
   height: 100vh;
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
+  font-size: 16px;
   color: #ffffff;
   text-align: center; }
 
@@ -11,13 +12,17 @@ body {
   margin: auto; }
 
 .form {
-  margin-top: 200px; }
+  margin-top: 150px; }
 
-h1 {
+.header__title {
   font-weight: 300;
-  font-size: 6.25em; }
+  font-size: 6.25em;
+  margin-bottom: 15px; }
 
-h3 {
-  font-weight: 300; }
+.header__subtitle {
+  font-weight: 300;
+  font-size: 2em;
+  opacity: .8;
+  margin-top: 15px; }
 
 /*# sourceMappingURL=styles.css.map */

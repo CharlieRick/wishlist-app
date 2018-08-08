@@ -6,8 +6,10 @@ body {
     height: 100vh;
     font-family: $font-family;
     font-weight: $font-weight-light;
+    font-size: $base__font-size;
     color: $white;
     text-align: center;
+
 }
 
 .container {
@@ -16,15 +18,21 @@ body {
   }
 
 .form {
-    margin-top: 200px;
+    margin-top: 150px;
 }
   
-h1 {
+.header__title {
     font-weight: $font-weight-light;
     font-size: $font-title-size;
+    margin-bottom: 15px;
 }
 
-h3 {
+.header__subtitle {
     font-weight: $font-weight-light;
+    font-size: $font-subtitle-size;
+    opacity: .8;
+    margin-top: 15px;
 }
+
+// Form 
 
