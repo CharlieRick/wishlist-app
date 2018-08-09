@@ -55,6 +55,11 @@ var display = new Vue({
           wishlists[index].weeks = wishlists[index].newWeeks;
           wishlists[index].link = wishlists[index].newLink;
           wishlists[index].editting = false;
+        },
+
+        scrollToTop: function(){
+          $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
         }
       }
       

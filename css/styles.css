@@ -181,4 +181,13 @@ body {
     .list__item__edit input:focus, .list__item__edit select:focus {
       border: none; }
 
+.backToTop {
+  margin: 40px 0 80px 0; }
+  .backToTop h2 {
+    opacity: .8;
+    cursor: pointer;
+    transition: all 0.5s ease; }
+    .backToTop h2:hover {
+      opacity: 1; }
+
 /*# sourceMappingURL=styles.css.map */

@@ -237,3 +237,17 @@ body {
 
     }
 }
+
+// Back To Top
+
+.backToTop {
+    margin: 40px 0 80px 0; 
+    h2 {
+        opacity: .8;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
