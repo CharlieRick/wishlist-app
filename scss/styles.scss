@@ -103,6 +103,15 @@ body {
     h1 {
         color: black;
     }
+    &--title-edit {
+        border: none;
+        height: 48px;
+        margin-bottom: 0;
+        border-bottom: 2px solid black;
+        font-family: $font-family;
+        font-size: 2.5rem;
+    }
+
 }
 
 .list__item__col--left {
@@ -142,6 +151,11 @@ body {
     }
     p {
         display: inline;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover {
+            color: black;
+        }
     }
     color: grey;
 }
@@ -182,5 +196,15 @@ body {
     &:hover {
         opacity: 1;
         transform: rotate(360deg);
+    }
+}
+
+// Item Editting
+
+.list__item__edit {
+    padding-top: 40px;
+    height: 148px;
+    label {
+        color: black;
     }
 }

@@ -80,6 +80,13 @@ body {
   text-align: left; }
   .list__item h1 {
     color: black; }
+  .list__item--title-edit {
+    border: none;
+    height: 48px;
+    margin-bottom: 0;
+    border-bottom: 2px solid black;
+    font-family: "Work Sans", sans-serif;
+    font-size: 2.5rem; }
 
 .list__item__col--left h1 {
   font-weight: 300; }
@@ -108,7 +115,11 @@ body {
     color: grey;
     margin-bottom: 5px; }
   .list__item__col--right p {
-    display: inline; }
+    display: inline;
+    cursor: pointer;
+    transition: all 0.5s ease; }
+    .list__item__col--right p:hover {
+      color: black; }
 
 .progress-bar {
   background: linear-gradient(to right, #8E2DE2, #4A00E0); }
@@ -140,5 +151,11 @@ body {
   .list__item__delete:hover {
     opacity: 1;
     transform: rotate(360deg); }
+
+.list__item__edit {
+  padding-top: 40px;
+  height: 148px; }
+  .list__item__edit label {
+    color: black; }
 
 /*# sourceMappingURL=styles.css.map */

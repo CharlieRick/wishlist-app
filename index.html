@@ -43,10 +43,18 @@
                 <div class="list__item">
                     <div class="list__item__col--left">
                         <img :src="catImageLink(wish)" class="list__item--category">
-                        <h1> {{ wish.name }}</h1>
-                        <p id="list__item--current">Current Progress £{{ wish.amountSaved }}/£{{ wish.price }} – {{ savedPercentage(wish) }}%</p>
-                        <b-progress height="15px" :value="savedPercentage(wish)" :max="100" class="mb-3"></b-progress>
-                        <p v-show="timeframeWeekly(wish) != Infinity">£{{ (timeframeWeekly(wish)*4.34524).toFixed(2) }} per month / £{{ (timeframeWeekly(wish)).toFixed(2) }} per week</p>
+                        <h1 v-show="!wish.editting"> {{ wish.name }}</h1> 
+                        <input v-show="wish.editting" v-model="wish.newName" class="list__item--title-edit">
+                        <div v-show="wish.editting" class="list__item__edit">
+                            <label>Price <input v-model="wish.newPrice"></label>
+                            <label>Category <input v-model="wish.newCategory"></label>
+                            <label>years <input v-model="wish.newYears"> months <input v-model="wish.newMonths"> weeks <input v-model="wish.newWeeks"></label>
+                            <label>Amount Saved <input v-model="wish.newAmountSaved"></label>
+                            <label>Link <input v-model="wish.newLink"></label>
+                        </div>
+                        <p v-show="!wish.editting" id="list__item--current">Current Progress £{{ wish.amountSaved }}/£{{ wish.price }} – {{ savedPercentage(wish) }}%</p>
+                        <b-progress v-show="!wish.editting" height="15px" :value="savedPercentage(wish)" :max="100" class="mb-3"></b-progress>
+                        <p v-show="!wish.editting && timeframeWeekly(wish) != Infinity">£{{ (timeframeWeekly(wish)*4.34524).toFixed(2) }} per month / £{{ (timeframeWeekly(wish)).toFixed(2) }} per week</p>
                     </div>
                     <div class="list__item__col--right">
                         <div><h1> £{{ (wish.price - wish.amountSaved) }}</h1>
@@ -57,7 +65,9 @@
                         </div>
                         <div class="list__item__links">
                             <a :href="wish.link" target="_blank"><img class="list__item--link" src="resources/link-01.svg"></a>
-                            <p>edit</p>
+                            <p @click="updateItem(index)" v-show="wish.editting">save</p>
+                            <p @click="toggleUpdate(index)" v-show="!wish.editting">edit</p>
+
                         </div>
                     </div>
                     <div @click="wishlists.splice(index, 1)" class="list__item__delete">
