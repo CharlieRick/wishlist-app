@@ -21,7 +21,16 @@
                 <div class="grid__row--top">
                     <label> Name* <input v-model="newName" type="text"></label>
                     <label> Price* <input v-model="newPrice" type="text"></label>
-                    <label> Category* <input v-model="newCategory" type="select"></label>
+                    <label> Category* <select v-model="newCategory">
+                        <option value="">Select an option</option>
+                        <option value="home">Home</option>
+                        <option value="tech">Tech</option>
+                        <option value="vehicle">Vehicle</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="holiday">Holiday</option>
+                        <option value="event">Event</option>
+                        <option value="other">Other</option>
+                      </select><i class="fas fa-caret-down"></i></label>
 
                 </div>
                 <div class="grid__row--middle">
@@ -47,7 +56,16 @@
                         <input v-show="wish.editting" v-model="wish.newName" class="list__item--title-edit">
                         <div v-show="wish.editting" class="list__item__edit">
                             <label>Price <input v-model="wish.newPrice"></label>
-                            <label>Category <input v-model="wish.newCategory"></label>
+                            <label>Category <select v-model="wish.newCategory">
+                                <option value="">Select</option>
+                                <option value="home">Home</option>
+                                <option value="tech">Tech</option>
+                                <option value="vehicle">Vehicle</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="holiday">Holiday</option>
+                                <option value="event">Event</option>
+                                <option value="other">Other</option>
+                              </select><i class="fas fa-caret-down"></i></label>
                             <label>years <input v-model="wish.newYears"> months <input v-model="wish.newMonths"> weeks <input v-model="wish.newWeeks"></label>
                             <label>Amount Saved <input v-model="wish.newAmountSaved"></label>
                             <label>Link <input v-model="wish.newLink"></label>

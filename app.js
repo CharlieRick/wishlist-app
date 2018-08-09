@@ -1,15 +1,4 @@
-const wishlists = [ {
-    amountSaved: 1500,
-    category: "home",
-    editting: false,
-    link: "http://",
-    months: null,
-    name: "Test",
-    price: "2500",
-    weeks: '6',
-    years: null,
-  }
-    
+const wishlists = [ 
   ];
 
 var display = new Vue({
@@ -121,7 +110,7 @@ var display = new Vue({
           this.newCategory = '';
           this.newName = '';
           this.newPrice = '';
-          this.newLink = null;
+          this.newLink = 'http://';
           this.newYears = null;
           this.newMonths = null;
           this.newWeeks = null;
@@ -133,7 +122,17 @@ var display = new Vue({
   });
 
 
+// Test Object
 
-
-
-
+// {
+//   amountSaved: 1500,
+//   category: "home",
+//   editting: false,
+//   link: "http://",
+//   months: null,
+//   name: "Test",
+//   price: "2500",
+//   weeks: '6',
+//   years: null,
+// }
+  
