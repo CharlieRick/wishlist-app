@@ -47,7 +47,7 @@ var display = new Vue({
         },
         updateItem: function(index) {
           wishlists[index].name = wishlists[index].newName;
-          wishlists[index].price = wishlists[index].newPrice;
+          wishlists[index].price = wishlists[index].newPrice.replace(',', '').replace('£', '');
           wishlists[index].amountSaved = wishlists[index].newAmountSaved;
           wishlists[index].category = wishlists[index].newCategory;
           wishlists[index].years = wishlists[index].newYears;
@@ -91,7 +91,7 @@ var display = new Vue({
           this.wishlists.push({
             category: this.newCategory,
             name: this.newName,
-            price: this.newPrice,
+            price: this.newPrice.replace(',', '').replace('£', ''),
             link: this.newLink,
             years: this.newYears,
             months: this.newMonths,
