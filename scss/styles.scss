@@ -28,13 +28,32 @@ body {
     margin-top: 100px;
 }
   
+.header__logo__containter {
+    width: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.header__logo {
+    width: auto;
+    display: block;
+    margin: 20px auto;
+}
+.header__logo--stars {
+    display: inline;
+    max-width: 35px;
+    padding-bottom: 120px;
+}
+
 .header__title {
+    display: inline;
     font-weight: $font-weight-light;
     font-size: $font-title-size;
-    margin-bottom: 15px;
 }
 
 .header__subtitle {
+    float: none;
+    clear: both;
     font-weight: $font-weight-light;
     font-size: $font-subtitle-size;
     opacity: .8;

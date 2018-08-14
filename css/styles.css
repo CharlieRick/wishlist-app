@@ -20,12 +20,29 @@ body {
 .form__container {
   margin-top: 100px; }
 
+.header__logo__containter {
+  width: auto;
+  display: block;
+  margin: 20px auto; }
+
+.header__logo {
+  width: auto;
+  display: block;
+  margin: 20px auto; }
+
+.header__logo--stars {
+  display: inline;
+  max-width: 35px;
+  padding-bottom: 120px; }
+
 .header__title {
+  display: inline;
   font-weight: 300;
-  font-size: 6.25em;
-  margin-bottom: 15px; }
+  font-size: 6.25em; }
 
 .header__subtitle {
+  float: none;
+  clear: both;
   font-weight: 300;
   font-size: 2em;
   opacity: .8;

@@ -6,6 +6,7 @@
     <title>Wishlist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="css/favicon.ico">
     <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -15,7 +16,12 @@
 <body>
     <div class="base__container" id="app">
         <div class="form__container" id="form">
-            <h1 class='header__title'>Wishlist</h1>
+            <div class="header__logo__containter">
+                <div class="header__logo">
+                    <h1 class='header__title'>Wishlist</h1>
+                    <img src="resources/stars.svg" class="header__logo--stars">
+                </div>
+            </div>
             <h3 class='header__subtitle'>Add an item to your wishlist</h3>
             <div id="form" class="form__layout">
                 <div class="grid__row--top">
